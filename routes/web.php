@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrganisasiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,17 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('dasbor', function () {
+Route::get('/', function () {
     return view('dasbor', [
         "title" => "dasbor"
     ]);
 });
 
-Route::get('/organisasi', function () {
-    return view('organisasi', [
-        "title" => "organisasi"
-    ]);
-});
+Route::get('/organisasi', [OrganisasiController::class,'index']);
+Route::get('/tambah-organisasi', [OrganisasiController::class,'create']);
 
 Route::get('/kategori', function () {
     return view('kategori', [
@@ -61,11 +59,6 @@ Route::get('/kelurahan', function () {
     ]);
 });
 
-Route::get('/tambah-organisasi', function () {
-    return view('tambah-organisasi', [
-        "title" => "tambah-organisasi"
-    ]);
-});
 
 Route::get('/tambah-kategori', function () {
     return view('tambah-kategori', [

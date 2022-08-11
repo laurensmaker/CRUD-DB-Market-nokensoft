@@ -18,29 +18,30 @@
                 <div class="row">                                    
                     <div class="col-lg">
                         <div class="p-5">                                            
-                            <form class="user">
+                            <form class="user" action="{{ url('organisasi') }}" method="POST"
+                            {{ csrf_field() }}
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="organisasi">Nama Organisasi</label>
-                                            <input type="text" class="form-control" id="organisasi">
+                                            <input type="text" class="form-control" id="organisasi" name="nama">
                                             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                                         </div>
                                         <div class="form-group">
                                             <label for="alamat-web">Alamat Website</label>
-                                            <input type="text" class="form-control" id="alamat-web">
+                                            <input type="text" class="form-control" id="alamat-web" name="alamat-web">
                                             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                                         </div>
                                         <div class="form-group">
                                             <label for="catatan">Catatan</label>
-                                            <textarea class="form-control" id="catatan" rows="5"></textarea>
+                                            <textarea class="form-control" id="catatan" rows="5" name="catatan"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <img src="img/undraw_profile.svg" alt="" width="100">
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleFormControlFile1">Pilih Gambar</label>
-                                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                            <label for="gambar">Pilih Gambar</label>
+                                            <input type="file" class="form-control-file" id="gambar" name="gambar">
                                           </div>
                                         
                                     </div>
@@ -48,33 +49,33 @@
                                         <div class="form-group">
                                             <label for="exampleFormControlSelect1">Provinsi</label>
                                             <select class="form-control" id="exampleFormControlSelect1">
-                                              <option>Papua</option>
-                                              <option>Papua Barat</option>
+                                              <option name="papua">Papua</option>
+                                              <option name="papua-barat">Papua Barat</option>
                                             </select>
                                           </div>
                                         <div class="form-group">
                                             <label for="exampleFormControlSelect1">Kabupaten</label>
                                             <select class="form-control" id="exampleFormControlSelect1">
-                                              <option>Kabupaten Jayapura</option>
-                                              <option>Kabupaten Kerom</option>
-                                              <option>Kabupaten Biak</option>
-                                              <option>Kabupaten Serui</option>
-                                              <option>Kabupaten Nabire</option>
+                                              <option name="kabupaten-jayapura">Kabupaten Jayapura</option>
+                                              <option  name="kabupaten-kerom">Kabupaten Kerom</option>
+                                              <option  name="kabupaten-biak">Kabupaten Biak</option>
+                                              <option  name="kabupaten-serui">Kabupaten Serui</option>
+                                              <option  name="kabupaten-nabire">Kabupaten Nabire</option>
                                              
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="alamat">Alamat</label>
-                                            <textarea class="form-control" id="alamat" rows="3"></textarea>
+                                            <textarea class="form-control" name="alamat" id="alamat" rows="3"></textarea>
                                         </div>
                                                                                              
                                     </div>
                                 </div>                                               
                                 
+                                <hr>
+                                <button type="submit" class="btn btn-info"><i class="fa fa-plus mr-2" aria-hidden="true"></i>Tambah</button>
+                                <button type="reset" class="btn btn-outline-dark"><i class="fa fa-undo mr-2" aria-hidden="true"></i>Batal</button>
                             </form>
-                            <hr>
-                            <button type="button" class="btn btn-info"><i class="fa fa-plus mr-2" aria-hidden="true"></i>Tambah</button>
-                            <button type="button" class="btn btn-outline-dark"><i class="fa fa-undo mr-2" aria-hidden="true"></i>Batal</button>
                         </div>
                     </div>
                 </div>
