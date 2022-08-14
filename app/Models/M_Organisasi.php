@@ -19,5 +19,5 @@ class M_Organisasi extends Model
         'kabupaten',
         'foto'
     ];
-    protected $hidden;
+    
 }

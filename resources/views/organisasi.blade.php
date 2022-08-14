@@ -25,10 +25,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="text-center">1</td>
-                            <td>Highland Roastery</td>
-                            <td>Expo, Waena, Kota Jayapura</td>
+                        @php
+                            $nomor = 1;
+                        @endphp
+                        @forelse ($data as $item)
+                        <tr>  
+                            <td>{{ $nomor++ }}</td>                          
+                            <td>{{ $item->nama }}</td>                          
+                            <td>{{ $item->alamat }}</td>                          
                             <td class="text-center">
                                 <a href="#" class="btn btn-info btn-circle mr-3">
                                     <i class="fa fa-magic" aria-hidden="true"></i>
@@ -42,26 +46,10 @@
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </td>
-                        </tr>
-
-                        <tr>
-                            <td class="text-center">2</td>
-                            <td>SMP YPPK Katolik Biak</td>
-                            <td>Yenures, Biak Papua</td>
-                            <td class="text-center">
-                                <a href="#" class="btn btn-info btn-circle mr-3">
-                                    <i class="fa fa-magic" aria-hidden="true"></i>
-                                </a>
-
-                                <a href="#" class="btn btn-primary btn-circle mr-3">
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                </a>
-
-                                <a href="#" class="btn btn-danger btn-circle">
-                                    <i class="fas fa-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
+                        </tr> 
+                        @empty
+                            
+                        @endforelse                      
 
                     </tbody>
                 </table>
