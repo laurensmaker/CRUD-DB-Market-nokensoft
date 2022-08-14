@@ -15,7 +15,7 @@ class OrganisasiController extends Controller
     public function index()
     {
         $data = M_Organisasi::latest();
-        return view('organisasi', ["title" => "organisasi"], compact($data));
+        return view('organisasi', ["title" => "organisasi"], compact('data'));
     }
 
     /**
