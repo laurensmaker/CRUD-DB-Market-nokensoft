@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\OrganisasiController;
+use App\Models\M_Organisasi;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,8 +21,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/organisasi', [OrganisasiController::class,'index']);
-Route::get('/tambah-organisasi', [OrganisasiController::class,'create']);
+Route::resource('organisasi', M_Organisasi::class);
 
 Route::get('/kategori', function () {
     return view('kategori', [
