@@ -15,6 +15,7 @@ class M_Organisasi extends Model
         'nama',
         'alamat',
         'alamat-web',
+        'catatan',
         'provinsi',
         'kabupaten',
         'foto'

@@ -18,9 +18,10 @@ class CreateOrganisasiTable extends Migration
             $table->string('nama');
             $table->text('alamat');
             $table->text('alamat-web');
+            $table->text('catatan');
             $table->string('provinsi', 30);
             $table->string('kabupaten', 30);
-            $table->string('foto', 40);
+            $table->string('foto');
             $table->softDeletes();
             $table->timestamps();
         });

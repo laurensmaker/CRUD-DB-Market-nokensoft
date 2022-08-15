@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\M_Organisasi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class OrganisasiController extends Controller
 {
@@ -14,7 +15,7 @@ class OrganisasiController extends Controller
      */
     public function index()
     {
-        $data = M_Organisasi::latest();
+        $data = M_Organisasi::all();
         return view('organisasi', ["title" => "organisasi"], compact('data'));
     }
 
@@ -25,7 +26,7 @@ class OrganisasiController extends Controller
      */
     public function create()
     {
-        return view('tambah-organisasi', ["title" => "tambah organisasi"]);
+        return view('create', ["title" => "tambah organisasi"]);
     }
 
     /**
@@ -36,17 +37,29 @@ class OrganisasiController extends Controller
      */
     public function store(Request $request)
     {
-        $model = new M_Organisasi();
-        $model->nama = $request->nama;
-        $model->alamat = $request->alamat;
-        $model->alamat_web = $request->alamat_web;
-        $model->provinsi = $request->provinsi;
-        $model->kabupaten = $request->kabupaten;
-        $model->catatan = $request->catatan;
-        $model->gambar = $request->gambar;
-        $model->save();
+        $this->validate($request, [
+            'nama' => 'Required',
+            'alamat' => 'Required',
+            'alamat_web' => 'Required',
+            'catatan' => 'Required',
+            'provinsi' => 'Required',
+            'kabupaten' => 'Required',
+            'foto' => 'Required|image|mimes:jpg,png,jpeg',
+        ]);
 
-        return redirect('/organisasi');
+        $foto = $request->file('foto');
+        $foto->storeAs('public/gambar', $foto->hashName());
+
+        M_Organisasi::create([
+            'nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'alamat_web' => $request->alamat_web,
+            'catatan' => $request->catatan,
+            'provinsi' => $request->provinsi,
+            'kabupaten' => $request->kabupaten,
+            'foto' => $foto->hashName()
+        ]);
+        return redirect('organisasi');
     }
 
     /**
@@ -57,7 +70,8 @@ class OrganisasiController extends Controller
      */
     public function show($id)
     {
-        //
+        $datail = M_Organisasi::find($id);
+        return view('detail-organisasi', ["title" => "Detail Organisasi"], compact('datail'));
     }
 
     /**
@@ -68,7 +82,8 @@ class OrganisasiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $datas = M_Organisasi::find($id);
+        return view('/edit', ["title" => "edit organisasi"], compact('datas'));
     }
 
     /**
@@ -80,7 +95,50 @@ class OrganisasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $datas = M_Organisasi::find($id);
+        $this->validate($request, [
+            'nama' => 'Required',
+            'alamat' => 'Required',
+            'alamat_web' => 'Required',
+            'catatan' => 'Required',
+            'provinsi' => 'Required',
+            'kabupaten' => 'Required',
+            'foto' => 'Required|image|mimes:jpg,png,jpeg',
+        ]);
+
+        //update
+        $datas->update([
+            'nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'alamat_web' => $request->alamat_web,
+            'catatan' => $request->catatan,
+            'provinsi' => $request->provinsi,
+            'kabupaten' => $request->kabupaten,
+            'foto' => $request->foto
+        ]);
+
+        //cek kalo input gambar
+        if ($request->hasFile('foto')) {
+            //upload gambar baru
+            $foto = $request->file('foto');
+            $foto->storeAs('public/gambar', $foto->hashName());
+
+            //hapus gambar lama
+            Storage::delete('public/gambar/'.$datas->foto);
+
+            //update 
+            $datas->update([
+                'nama' => $request->nama,
+                'alamat' => $request->alamat,
+                'alamat_web' => $request->alamat_web,
+                'catatan' => $request->catatan,
+                'provinsi' => $request->provinsi,
+                'kabupaten' => $request->kabupaten,
+                'foto' => $foto->hashName()
+            ]);
+        } 
+        
+        return redirect('/organisasi');
     }
 
     /**
@@ -91,6 +149,10 @@ class OrganisasiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $datas = M_Organisasi::find($id);
+        Storage::delete('public/gambar'. $datas->foto);
+        $datas->delete();
+
+        return redirect('organisasi');
     }
 }
