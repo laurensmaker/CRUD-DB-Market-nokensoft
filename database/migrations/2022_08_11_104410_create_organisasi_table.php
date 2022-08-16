@@ -17,7 +17,7 @@ class CreateOrganisasiTable extends Migration
             $table->bigIncrements('id');
             $table->string('nama');
             $table->text('alamat');
-            $table->text('alamat-web');
+            $table->text('alamat_web');
             $table->text('catatan');
             $table->string('provinsi', 30);
             $table->string('kabupaten', 30);

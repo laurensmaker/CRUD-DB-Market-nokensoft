@@ -21,7 +21,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::resource('organisasi', M_Organisasi::class);
+Route::resource('organisasi', OrganisasiController::class);
 Route::get('edit/{id}', [OrganisasiController::class, 'edit']);
 Route::post('update/{id}', [OrganisasiController::class, 'update']);
 Route::get('destroy/{id}', [OrganisasiController::class, 'destroy']);

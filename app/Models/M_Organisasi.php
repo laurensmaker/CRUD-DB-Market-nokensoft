@@ -14,7 +14,7 @@ class M_Organisasi extends Model
     protected $fillable = [
         'nama',
         'alamat',
-        'alamat-web',
+        'alamat_web',
         'catatan',
         'provinsi',
         'kabupaten',
