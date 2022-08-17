@@ -28,13 +28,13 @@
                         @php
                             $nomor = 1;
                         @endphp
-                        @forelse ($data as $item)
+                        @forelse ($organisasi as $item)
                         <tr>  
                             <td>{{ $nomor++ }}</td>                          
                             <td>{{ $item->nama }}</td>                          
                             <td>{{ $item->alamat }}</td>                          
                             <td class="text-center">
-                                <a href="{{ url('edit', $item->id) }}" class="btn btn-info btn-circle mr-3">
+                                <a href="{{ url('organisasi/edit', $item->id) }}" class="btn btn-info btn-circle mr-3">
                                     <i class="fa fa-magic" aria-hidden="true"></i>
                                 </a>
 
@@ -49,7 +49,7 @@
                         </tr> 
                         @empty
                         <div class="alert alert-danger">
-                            Data Post belum Tersedia.
+                            Data Organisani belum Tersedia.
                         </div>
                             
                         @endforelse                      

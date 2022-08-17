@@ -18,7 +18,7 @@
                 <div class="row">                                    
                     <div class="col-lg">
                         <div class="p-5">                                            
-                            <form class="user" action="{{ url('update/'.$datas->id) }}" method="POST" enctype="multipart/form-data"
+                            <form class="user" action="{{ url('update/'.$organisasi->id) }}" method="POST" enctype="multipart/form-data"
                            @csrf
                            {{-- @method('PUT') --}}
                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
@@ -26,52 +26,51 @@
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="organisasi">Nama Organisasi</label>
-                                            <input type="text" value="{{ $datas->nama }}" class="form-control @error('nama') is-invalid @enderror" id="organisasi" name="nama">
-                                            @error('nama')
-                                            <div class="alert alert-danger mt-2">
-                                                {{ $message }}
+                                            <input type="text" value="{{ old('nama', $organisasi->nama) }}" class="form-control " id="organisasi" name="nama" >
+                                            @if($errors->has('nama'))
+                                            <div class="text-danger">
+                                                {{ $errors->first('nama')}}
                                             </div>
-                                            @enderror
+                                            @endif
                                         </div>
                                         <div class="form-group">
                                             <label for="alamat-web">Alamat Website</label>
-                                            <input type="text" value="{{ $datas->alamat_web }}" class="form-control @error('alamat-web') is-invalid @enderror" id="alamat-web" name="alamat_web">
-                                            @error('alamat-web')
-
-                                            <div class="alert alert-danger mt-2">
-                                                {{ $message }}
+                                            <input type="text" value="{{ old('alamat_web', $organisasi->alamat_web) }}" class="form-control " id="alamat-web" name="alamat_web">
+                                            @if($errors->has('alamat_web'))
+                                            <div class="text-danger">
+                                                {{ $errors->first('alamat_web')}}
                                             </div>
-                                            @enderror
+                                            @endif
                                         </div>
                                         <div class="form-group">
                                             <label for="catatan">Catatan</label>
-                                            <textarea class="form-control @error('catatan') is-invalid @enderror" id="catatan" rows="5" name="catatan">{{ $datas->catatan }}</textarea>
+                                            <textarea class="form-control" id="catatan" rows="5" name="catatan">{{ old('catatan', $organisasi->catatan )}}</textarea>
 
-                                            @error('catatan')
-                                            <div class="alert alert-danger mt-2">
-                                                {{ $message }}
+                                            @if($errors->has('catatan'))
+                                            <div class="text-danger">
+                                                {{ $errors->first('catatan')}}
                                             </div>
-                                            @enderror
+                                            @endif
                                         </div>
                                         <div class="form-group">
                                             <img src="img/undraw_profile.svg" alt="" width="100">
                                         </div>
                                         <div class="form-group">
                                             <label for="gambar">Pilih Gambar</label>
-                                            <input type="file" class="form-control-file @error('foto') is-invalid @enderror" id="gambar" name="foto" value="{{ $datas->foto }}">
+                                            <input type="file" class="form-control-file cumtom-file-input" id="gambar" name="foto" value="{{ Storage::url('public/gambar/').$organisasi->foto }}">
                                           </div>
-                                           @error('foto')
-                                            <div class="alert alert-danger mt-2">
-                                                {{ $message }}
+                                          @if($errors->has('foto'))
+                                            <div class="text-danger">
+                                                {{ $errors->first('foto')}}
                                             </div>
-                                            @enderror
+                                          @endif                                                                        
                                         
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="provinsi">Provinsi</label>
                                             <select class="form-control" id="provinsi" name="provinsi">
-                                                <option>{{ $datas->provinsi }}</option>
+                                                <option>{{ old('provinsi', $organisasi->provinsi) }}</option>
                                               <option value="papua" {{ old('provinsi') == 'papua' ? 'selected' : '' }}>Papua</option>
                                               <option value="papua-barat" {{ old('provinsi') == 'papua-barat' ? 'selected' : '' }}>Papua Barat</option>
                                             </select>
@@ -80,7 +79,7 @@
                                         <div class="form-group">
                                             <label for="kabupaten">Kabupaten</label>
                                             <select class="form-control" id="kabupaten" name="kabupaten">
-                                                <option>{{ $datas->kabupaten }}</option>
+                                                <option>{{ old('kabupaten', $organisasi->kabupaten) }}</option>                                                
                                               <option value="jayapura" {{ old('kabupaten') == 'jayapura' ? 'selected' : '' }}>Kabupaten Jayapura</option>                                             
                                               <option  value="biak" {{ old('kabupaten') == 'biak' ? 'selected' : '' }}>Kabupaten Biak</option>
                                               <option  value="serui" {{ old('kabupaten') == 'serui' ? 'selected' : '' }}>Kabupaten Serui</option>
@@ -91,12 +90,12 @@
 
                                         <div class="form-group">
                                             <label for="alamat">Alamat</label>
-                                            <textarea class="form-control  @error('foto') is-invalid @enderror" name="alamat" id="alamat" rows="3" >{{ $datas->alamat }}</textarea>
-                                            @error('alamat')
-                                            <div class="alert alert-danger mt-2">
-                                                {{ $message }}
+                                            <textarea class="form-control " name="alamat" id="alamat" rows="3" >{{ old('alamat', $organisasi->alamat )}}</textarea>
+                                            @if($errors->has('alamat'))
+                                            <div class="text-danger">
+                                                {{ $errors->first('alamat')}}
                                             </div>
-                                            @enderror
+                                            @endif
                                         </div>
                                                                                              
                                     </div>

@@ -8,7 +8,7 @@
         <h1 class="h3 mb-0 text-gray-800">Detail Organisasi</h1>
 
         <a href="{{ url('organisasi') }}" class="d-none d-sm-inline-block btn btn-primary shadow-sm"><i
-                class="fa fa-plus mr-2" aria-hidden="true"></i>Kembali</a>
+                class="fa fa-arrow-circle-left mr-2" aria-hidden="true"></i>Kembali</a>
     </div>
 
     <!-- Content Row -->
@@ -31,19 +31,18 @@
                     <tbody>
                         @php
                             $nomor = 1;
-                        @endphp
-                        {{-- @foreach ($datail as $tamp) --}}
+                        @endphp                       
                             <tr>
                                 <td>{{ $nomor++ }}</td>
-                                <td>{{ $datail->nama }}</td>
-                                <td>{{ $datail->alamat }}</td>
-                                <td>{{ $datail->alamat_web }}</td>
-                                <td>{{ $datail->provinsi }}</td>
-                                <td>{{ $datail->kabupaten }}</td>
-                                <td>{{ $datail->catatan }}</td>
-                                <td><img src="{{ 'storage/app/publick/gambar/'. $datail->foto }}" width="100" height="100" alt=""></td>
+                                <td>{{ $organisasi->nama }}</td>
+                                <td>{{ $organisasi->alamat }}</td>
+                                <td>{{ $organisasi->alamat_web }}</td>
+                                <td>{{ $organisasi->provinsi }}</td>
+                                <td>{{ $organisasi->kabupaten }}</td>
+                                <td>{{ $organisasi->catatan }}</td>
+                                <td><img src="{{ Storage::url('public/gambar/').$organisasi->foto }}" class="rounded" style="width: 100px" alt="foto"></td>
                             </tr>
-                        {{-- @endforeach --}}
+                       
                                             
 
                     </tbody>

@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\OrganisasiController;
-use App\Models\M_Organisasi;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,8 +20,10 @@ Route::get('/', function () {
     ]);
 });
 
-Route::resource('organisasi', OrganisasiController::class);
-Route::get('edit/{id}', [OrganisasiController::class, 'edit']);
+Route::get('/organisasi', [OrganisasiController::class, 'index']);
+Route::get('/organisasi/create', [OrganisasiController::class, 'create']);
+Route::post('/organisasi/store', [OrganisasiController::class, 'store']);
+Route::get('organisasi/edit/{id}', [OrganisasiController::class, 'edit']);
 Route::post('update/{id}', [OrganisasiController::class, 'update']);
 Route::get('destroy/{id}', [OrganisasiController::class, 'destroy']);
 Route::get('detail-organisasi/{id}', [OrganisasiController::class, 'show']);
