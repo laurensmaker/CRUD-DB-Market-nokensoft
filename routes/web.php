@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\OrganisasiController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,11 +29,13 @@ Route::post('update/{id}', [OrganisasiController::class, 'update']);
 Route::get('destroy/{id}', [OrganisasiController::class, 'destroy']);
 Route::get('detail-organisasi/{id}', [OrganisasiController::class, 'show']);
 
-Route::get('/kategori', function () {
-    return view('kategori', [
-        "title" => "kategori"
-    ]);
-});
+Route::get('/kategori', [KategoriController::class, 'index']);
+Route::get('/kategori/tambah', [KategoriController::class, 'tambah']);
+Route::post('/kategori/store', [KategoriController::class, 'store']);
+Route::get('kategori/edit/{id}', [KategoriController::class, 'edit']);
+Route::post('update/{id}', [KategoriController::class, 'update']);
+Route::get('hapus/{id}', [KategoriController::class, 'hapus']);
+    
 
 Route::get('/pengguna', function () {
     return view('pengguna', [

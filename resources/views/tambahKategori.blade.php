@@ -6,7 +6,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Kategori/Tambah</h1>
-        <a href="kategori" class="d-none d-sm-inline-block btn btn-primary shadow-sm"><i class="fa fa-arrow-circle-left mr-2" aria-hidden="true"></i>Kembali</a>
+        <a href="{{ url('kategori') }}" class="d-none d-sm-inline-block btn btn-primary shadow-sm"><i class="fa fa-arrow-circle-left mr-2" aria-hidden="true"></i>Kembali</a>
     </div>
 
     <!-- Content Row -->
@@ -18,22 +18,28 @@
                 <div class="row">                                    
                     <div class="col-lg">
                         <div class="p-5">                                            
-                            <form class="user">
+                            <form class="user" action="{{ url('kategori/store') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                 <div class="row">
                                     <div class="col-lg">
                                         <div class="form-group">
                                             <label for="kategori">Kategori</label>
-                                            <input type="text" class="form-control" id="kategori">
-                                            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                            <input type="text" class="form-control" id="kategori" name="nama_kategori">
+                                            @if($errors->has('nama_kategori'))
+                                            <div class="text-danger">
+                                                {{ $errors->first('nama_kategori')}}
+                                            </div>
+                                            @endif
                                         </div>                                                        
                                         
                                     </div>                                                    
                                 </div>                                               
                                 
+                                <hr>
+                                <button type="submit" class="btn btn-info"><i class="fa fa-plus mr-2" aria-hidden="true"></i>Tambah</button>
+                                <button type="reset" class="btn btn-outline-dark"><i class="fa fa-undo mr-2" aria-hidden="true"></i>Batal</button>
                             </form>
-                            <hr>
-                            <button type="button" class="btn btn-info"><i class="fa fa-plus mr-2" aria-hidden="true"></i>Tambah</button>
-                            <button type="button" class="btn btn-outline-dark"><i class="fa fa-undo mr-2" aria-hidden="true"></i>Batal</button>
                         </div>
                     </div>
                 </div>
