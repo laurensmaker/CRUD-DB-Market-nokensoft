@@ -61,10 +61,10 @@
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <!-- <h6 class="collapse-header">Login Screens:</h6> -->
-                    <a class="collapse-item {{ ($title === "provinsi") ? 'active' : ''}}" href="provinsi">Provinsi</a>
-                    <a class="collapse-item {{ ($title === "kabupaten") ? 'active' : ''}}" href="kabupaten">Kabupaten</a>
-                    <a class="collapse-item {{ ($title === "distrik") ? 'active' : ''}}" href="distrik">Distrik</a>
-                    <a class="collapse-item {{ ($title === "kelurahan") ? 'active' : ''}}" href="kelurahan">Kelurahan</a>
+                    <a class="collapse-item {{ ($title === "Provinsi") ? 'active' : ''}}" href="provinsi">Provinsi</a>
+                    <a class="collapse-item {{ ($title === "Kabupaten") ? 'active' : ''}}" href="kabupaten">Kabupaten</a>
+                    <a class="collapse-item {{ ($title === "Distrik") ? 'active' : ''}}" href="distrik">Distrik</a>
+                    <a class="collapse-item {{ ($title === "Kelurahan") ? 'active' : ''}}" href="kelurahan">Kelurahan</a>
                 </div>
             </div>
         </li>

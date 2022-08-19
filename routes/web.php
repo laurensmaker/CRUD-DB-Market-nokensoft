@@ -3,6 +3,7 @@
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\OrganisasiController;
 use App\Http\Controllers\PenggunaController;
+use App\Http\Controllers\ProvinsiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,11 +47,9 @@ Route::get('pengguna/edit/{id}', [PenggunaController::class, 'edit']);
 Route::post('update/{id}', [PenggunaController::class, 'update']);
 
 
-Route::get('/provinsi', function () {
-    return view('provinsi', [
-        "title" => "provinsi"
-    ]);
-});
+Route::get('provinsi',[ProvinsiController::class, 'index']);
+Route::get('provinsi/tambah',[ProvinsiController::class, 'tambah']);
+Route::post('store',[ProvinsiController::class, 'store']);
 
 Route::get('/kabupaten', function () {
     return view('kabupaten', [
