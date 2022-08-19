@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use File;
 use App\Models\M_Organisasi;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use File;
 
 class OrganisasiController extends Controller
 {
@@ -84,7 +85,7 @@ class OrganisasiController extends Controller
     public function edit($id)
     {
         $data = M_Organisasi::find($id);
-        return view('edit', ["title" => "Edit Organisasi"], ['organisasi' => $data]);
+        return view('editPengguna', ["title" => "Edit Organisasi"], ['organisasi' => $data]);
     }
 
     /**

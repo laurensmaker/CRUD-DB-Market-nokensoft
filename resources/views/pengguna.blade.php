@@ -6,7 +6,7 @@
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Pengguna</h1>
-        <a href="tambah-pengguna" class="d-none d-sm-inline-block btn btn-primary shadow-sm"><i
+        <a href="{{ url('pengguna/tambah') }}" class="d-none d-sm-inline-block btn btn-primary shadow-sm"><i
             class="fa fa-plus mr-2" aria-hidden="true"></i>Tambah</a>
     </div>
 
@@ -23,15 +23,19 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="text-center">1</td>
-                                <td>Laurens Maker</td>
-                                <td class="text-center">
-                                    <a href="#" class="btn btn-info btn-circle mr-3 ">
+                            @php
+                                $nomor = 1;
+                            @endphp
+                           @forelse ($pengguna as $value)
+                               <tr>
+                                   <td>{{ $nomor++ }}</td>
+                                   <td>{{ $value->nama }}</td>
+                                   <td class="text-center">
+                                    <a href="{{ url('pengguna/edit', $value->id) }}" class="btn btn-info btn-circle mr-3 ">
                                         <i class="fa fa-magic" aria-hidden="true"></i>
                                     </a>
 
-                                    <a href="#" class="btn btn-primary btn-circle mr-3">
+                                    <a href="{{ url('pengguna/detail', $value->id) }}" class="btn btn-primary btn-circle mr-3">
                                         <i class="fa fa-eye" aria-hidden="true"></i>
                                     </a>
 
@@ -39,59 +43,12 @@
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>
-                            </tr>
-
-                            <tr>
-                                <td class="text-center">2</td>
-                                <td>Alfian Nggoal</td>
-                                <td class="text-center">
-                                    <a href="#" class="btn btn-info btn-circle mr-3">
-                                        <i class="fa fa-magic" aria-hidden="true"></i>
-                                    </a>
-
-                                    <a href="#" class="btn btn-primary btn-circle mr-3">
-                                        <i class="fa fa-eye" aria-hidden="true"></i>
-                                    </a>
-
-                                    <a href="#" class="btn btn-danger btn-circle">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">3</td>
-                                <td>Korinus Pabika</td>
-                                <td class="text-center">
-                                    <a href="#" class="btn btn-info btn-circle mr-3">
-                                        <i class="fa fa-magic" aria-hidden="true"></i>
-                                    </a>
-
-                                    <a href="#" class="btn btn-primary btn-circle mr-3">
-                                        <i class="fa fa-eye" aria-hidden="true"></i>
-                                    </a>
-
-                                    <a href="#" class="btn btn-danger btn-circle">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">4</td>
-                                <td>Janzen Faidiban</td>
-                                <td class="text-center">
-                                    <a href="#" class="btn btn-info btn-circle mr-3">
-                                        <i class="fa fa-magic" aria-hidden="true"></i>
-                                    </a>
-
-                                    <a href="#" class="btn btn-primary btn-circle mr-3">
-                                        <i class="fa fa-eye" aria-hidden="true"></i>
-                                    </a>
-
-                                    <a href="#" class="btn btn-danger btn-circle">
-                                        <i class="fas fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>                                           
+                               </tr>
+                           @empty
+                           <div class="alert alert-info">
+                            Data Pengguna belum Tersedia.
+                            </div>
+                           @endforelse                                                                    
                         </tbody>
                 </table>
             </div>

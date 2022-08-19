@@ -3,7 +3,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dasbor">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
             <div class="sidebar-brand-icon rotate-n-15 ">
                 <i class="fa fa-database" aria-hidden="true"></i>
             </div>
@@ -16,7 +16,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item {{ ($title === "dasbor") ? 'active' : ''}} ">
-            <a class="nav-link " href="dasbor">
+            <a class="nav-link " href="/">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>
@@ -31,13 +31,13 @@
                 <span>Organisani</span></a>
         </li>
 
-        <li class="nav-item {{ ($title === "kategori") ? 'active' : ''}}">
+        <li class="nav-item {{ ($title === "Kategori") ? 'active' : ''}}">
             <a class="nav-link" href="kategori">
                 <i class="fas fa-fw fa-th fa-th"></i>
                 <span>Kategori</span></a>
         </li>
 
-        <li class="nav-item {{ ($title === "pengguna") ? 'active' : ''}}">
+        <li class="nav-item {{ ($title === "Pengguna") ? 'active' : ''}}">
             <a class="nav-link" href="pengguna">
                 <i class="fas fa-fw fa-users"></i>
                 <span>Pengguna</span></a>
