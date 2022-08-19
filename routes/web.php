@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\KabupatenController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\OrganisasiController;
 use App\Http\Controllers\PenggunaController;
@@ -51,11 +52,12 @@ Route::get('provinsi',[ProvinsiController::class, 'index']);
 Route::get('provinsi/tambah',[ProvinsiController::class, 'tambah']);
 Route::post('store',[ProvinsiController::class, 'store']);
 
-Route::get('/kabupaten', function () {
-    return view('kabupaten', [
-        "title" => "kabupaten"
-    ]);
-});
+Route::get('kabupaten', [KabupatenController::class, 'index']);
+Route::get('kabupaten/tambah', [KabupatenController::class, 'tambah']);
+Route::post('store', [KabupatenController::class, 'store']);
+Route::get('kabupaten/edit/{id}', [KabupatenController::class, 'edit']);
+Route::post('update/{id}', [KabupatenController::class, 'update']);
+Route::get('hapus/{id}', [KabupatenController::class, 'hapus']);
 
 Route::get('/distrik', function () {
     return view('distrik', [
