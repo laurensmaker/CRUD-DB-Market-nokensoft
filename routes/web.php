@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\DistrikController;
 use App\Http\Controllers\KabupatenController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\KelurahanController;
 use App\Http\Controllers\OrganisasiController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\ProvinsiController;
@@ -59,17 +61,21 @@ Route::get('kabupaten/edit/{id}', [KabupatenController::class, 'edit']);
 Route::post('update/{id}', [KabupatenController::class, 'update']);
 Route::get('hapus/{id}', [KabupatenController::class, 'hapus']);
 
-Route::get('/distrik', function () {
-    return view('distrik', [
-        "title" => "distrik"
-    ]);
-});
+Route::get('distrik', [DistrikController::class, 'index']);
+Route::get('distrik/tambah', [DistrikController::class, 'tambah']);
+Route::post('store', [DistrikController::class, 'store']);
+Route::get('distrik/edit/{id}', [DistrikController::class, 'edit']);
+Route::post('update/{id}', [DistrikController::class, 'update']);
+Route::get('distrik/detail/{id}', [DistrikController::class, 'detail']);
+Route::get('hapus/{id}', [DistrikController::class, 'hapus']);
 
-Route::get('/kelurahan', function () {
-    return view('kelurahan', [
-        "title" => "kelurahan"
-    ]);
-});
+Route::get('kelurahan',[KelurahanController::class, 'index']);
+Route::get('kelurahan/tambah',[KelurahanController::class, 'tambah']);
+Route::post('store',[KelurahanController::class, 'store']);
+Route::get('kelurahan/edit/{id}',[KelurahanController::class, 'edit']);
+Route::post('update/{id}',[KelurahanController::class, 'update']);
+Route::get('kelurahan/detail/{id}',[KelurahanController::class, 'detail']);
+Route::get('hapus/{id}',[KelurahanController::class, 'hapus']);
 
 
 Route::get('/tambah-kategori', function () {
