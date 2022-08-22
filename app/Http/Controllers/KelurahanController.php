@@ -50,4 +50,12 @@ class KelurahanController extends Controller
         $data = KelurahanModel::find($id);
         return view('detailKelurahan',['title' => 'Detail Kelurahan', 'kelurahan' => $data]);
     }
+
+    public function hapus($id)
+    {
+        $data =KelurahanModel::find($id);
+        $data->delete();
+        return redirect('kelurahan');
+
+    }
 }

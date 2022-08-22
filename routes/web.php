@@ -38,16 +38,17 @@ Route::get('/kategori', [KategoriController::class, 'index']);
 Route::get('/kategori/tambah', [KategoriController::class, 'tambah']);
 Route::post('/kategori/store', [KategoriController::class, 'store']);
 Route::get('kategori/edit/{id}', [KategoriController::class, 'edit']);
-Route::post('update/{id}', [KategoriController::class, 'update']);
-Route::get('hapus/{id}', [KategoriController::class, 'hapus']);
+Route::post('kategori/update/{id}', [KategoriController::class, 'update']);
+Route::get('kategori/hapus/{id}', [KategoriController::class, 'hapus']);
     
 
 Route::get('/pengguna', [PenggunaController::class, 'index']);
 Route::get('/pengguna/tambah', [PenggunaController::class, 'tambah']);
-Route::post('store', [PenggunaController::class, 'store']);
+Route::post('pengguna/store', [PenggunaController::class, 'store']);
 Route::get('pengguna/detail/{id}', [PenggunaController::class, 'detail']);
 Route::get('pengguna/edit/{id}', [PenggunaController::class, 'edit']);
 Route::post('update/{id}', [PenggunaController::class, 'update']);
+Route::get('hapus/{id}', [PenggunaController::class, 'hapus']);
 
 
 Route::get('provinsi',[ProvinsiController::class, 'index']);
@@ -56,60 +57,26 @@ Route::post('store',[ProvinsiController::class, 'store']);
 
 Route::get('kabupaten', [KabupatenController::class, 'index']);
 Route::get('kabupaten/tambah', [KabupatenController::class, 'tambah']);
-Route::post('store', [KabupatenController::class, 'store']);
+Route::post('kabupaten/store', [KabupatenController::class, 'store']);
 Route::get('kabupaten/edit/{id}', [KabupatenController::class, 'edit']);
-Route::post('update/{id}', [KabupatenController::class, 'update']);
-Route::get('hapus/{id}', [KabupatenController::class, 'hapus']);
+Route::post('kabupaten/update/{id}', [KabupatenController::class, 'update']);
+Route::get('kabupaten/hapus/{id}', [KabupatenController::class, 'hapus']);
 
 Route::get('distrik', [DistrikController::class, 'index']);
 Route::get('distrik/tambah', [DistrikController::class, 'tambah']);
-Route::post('store', [DistrikController::class, 'store']);
+Route::post('distrik/store', [DistrikController::class, 'store']);
 Route::get('distrik/edit/{id}', [DistrikController::class, 'edit']);
-Route::post('update/{id}', [DistrikController::class, 'update']);
+Route::post('distrik/update/{id}', [DistrikController::class, 'update']);
 Route::get('distrik/detail/{id}', [DistrikController::class, 'detail']);
-Route::get('hapus/{id}', [DistrikController::class, 'hapus']);
+Route::get('distrik/hapus/{id}', [DistrikController::class, 'hapus']);
 
 Route::get('kelurahan',[KelurahanController::class, 'index']);
 Route::get('kelurahan/tambah',[KelurahanController::class, 'tambah']);
-Route::post('store',[KelurahanController::class, 'store']);
+Route::post('kelurahan/store',[KelurahanController::class, 'store']);
 Route::get('kelurahan/edit/{id}',[KelurahanController::class, 'edit']);
-Route::post('update/{id}',[KelurahanController::class, 'update']);
+Route::post('kelurahan/update/{id}',[KelurahanController::class, 'update']);
 Route::get('kelurahan/detail/{id}',[KelurahanController::class, 'detail']);
-Route::get('hapus/{id}',[KelurahanController::class, 'hapus']);
+Route::get('kelurahan/hapus/{id}',[KelurahanController::class, 'hapus']);
 
 
-Route::get('/tambah-kategori', function () {
-    return view('tambah-kategori', [
-        "title" => "tambah-kategori"
-    ]);
-});
 
-Route::get('/tambah-pengguna', function () {
-    return view('tambah-pengguna', [
-        "title" => "tambah-pengguna"
-    ]);
-});
-
-Route::get('/tambah-provinsi', function () {
-    return view('tambah-provinsi', [
-        "title" => "tambah-provinsi"
-    ]);
-});
-
-Route::get('/tambah-kabupaten', function () {
-    return view('tambah-kabupaten', [
-        "title" => "tambah-kabupaten"
-    ]);
-});
-
-Route::get('/tambah-distrik', function () {
-    return view('tambah-distrik', [
-        "title" => "tambah-distrik"
-    ]);
-});
-
-Route::get('/tambah-kelurahan', function () {
-    return view('tambah-kelurahan', [
-        "title" => "tambah-kelurahan"
-    ]);
-});

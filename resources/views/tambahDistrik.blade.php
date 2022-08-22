@@ -18,7 +18,7 @@
                 <div class="row">                                    
                     <div class="col-lg">
                         <div class="p-5">                                            
-                            <form class="user" action="{{ url('store') }}" method="POST">
+                            <form class="user" action="{{ url('distrik/store') }}" method="POST">
                                 @csrf
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                 <div class="row">

@@ -36,7 +36,7 @@ class KategoriController extends Controller
     public function update($id, Request $request)
     {
         $data = Kategori::find($id);
-        $this->validate($request,['nama_kategori' => 'Required']);
+        $this->validate($request, ['nama_kategori' => 'Required']);
 
         $data->nama_kategori = $request->nama_kategori;
         $data->save();

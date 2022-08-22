@@ -55,7 +55,7 @@ class PenggunaController extends Controller
     public function edit($id)
     {
         $data = PenggunaModel::find($id);
-        return view('editPengguna', ['title' => 'Edit Pengguna', 'pengguna' => $data]);
+        return view('editPengguna', ['title' => 'Edit Pengguna', 'data' => $data]);
     }
     public function update($id, Request $request)
     {
@@ -89,6 +89,15 @@ class PenggunaController extends Controller
         $data->no_hp = $request->no_hp;
         $data->foto = $request->foto;
         $data->save();
+
+        return redirect('pengguna');
+
+    }
+
+    public function hapus($id)
+    {
+        $data = PenggunaModel::find($id);
+        $data->delete();
 
         return redirect('pengguna');
 

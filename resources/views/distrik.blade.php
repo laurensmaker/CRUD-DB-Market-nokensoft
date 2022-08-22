@@ -41,7 +41,7 @@
                                         <i class="fa fa-eye" aria-hidden="true"></i>
                                     </a>
 
-                                    <a href="{{ url('hapus', $item->id) }}" class="btn btn-danger btn-circle">
+                                    <a href="{{ url('distrik/hapus', $item->id) }}" class="btn btn-danger btn-circle">
                                         <i class="fas fa-trash"></i>
                                     </a>
                                 </td>

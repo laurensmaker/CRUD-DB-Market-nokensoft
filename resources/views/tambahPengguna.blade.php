@@ -18,7 +18,7 @@
                 <div class="row">                                    
                     <div class="col-lg">
                         <div class="p-5">                                            
-                            <form class="user" action="{{ url('store') }}" method="POST" enctype="multipart/form-data">
+                            <form class="user" action="{{ url('pengguna/store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                 <div class="row">
