@@ -18,7 +18,7 @@
                 <div class="row">                                    
                     <div class="col-lg">
                         <div class="p-5">                                            
-                            <form class="user" action="{{ url('update/'.$organisasi->id) }}" method="POST" enctype="multipart/form-data"
+                            <form class="user" action="{{ url('organisasi/update',$organisasi->id) }}" method="POST" enctype="multipart/form-data"
                            @csrf
                            {{-- @method('PUT') --}}
                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />

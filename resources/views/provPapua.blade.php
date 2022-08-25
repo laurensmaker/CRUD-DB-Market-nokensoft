@@ -5,8 +5,8 @@
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Distrik</h1>
-        <a href="{{ url('kelurahan') }}" class="d-none d-sm-inline-block btn btn-primary shadow-sm"><i
+        <h1 class="h3 mb-0 text-gray-800">Provinsi Papua</h1>
+        <a href="{{ url('provinsi') }}" class="d-none d-sm-inline-block btn btn-primary shadow-sm"><i
             class="fa fa-arrow-circle-left  mr-2" aria-hidden="true"></i>Kembali</a>
     </div>
 

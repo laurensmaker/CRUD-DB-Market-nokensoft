@@ -35,9 +35,9 @@
                                     <i class="fa fa-magic" aria-hidden="true"></i>
                                 </a>
 
-                                <a href="#" class="btn btn-primary btn-circle mr-3">
+                                {{-- <a href="#" class="btn btn-primary btn-circle mr-3">
                                     <i class="fa fa-eye" aria-hidden="true"></i>
-                                </a>
+                                </a> --}}
 
                                 <a href="{{ url('kategori/hapus', $value->id) }}" class="btn btn-danger btn-circle">
                                     <i class="fas fa-trash"></i>

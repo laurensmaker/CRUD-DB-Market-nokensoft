@@ -18,14 +18,14 @@
                 <div class="row">                                    
                     <div class="col-lg">
                         <div class="p-5">                                            
-                            <form class="user" action="{{ url('update', $data->id) }}" method="POST" enctype="multipart/form-data">
+                            <form class="user" action="{{ url('update', $pengguna->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="nama">Nama Lengkap</label>
-                                            <input type="text" class="form-control" id="nama" name="nama" value="{{ $data->nama }}">
+                                            <input type="text" class="form-control" id="nama" name="nama" >
                                             @if($errors->has('nama'))
                                             <div class="text-danger">
                                                 {{ $errors->first('nama')}}
@@ -35,7 +35,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="email">Email</label>
-                                            <input type="email" class="form-control" id="email" name="email" value="{{ $data->email }}">
+                                            <input type="email" class="form-control" id="email" name="email">
                                             @if($errors->has('email'))
                                             <div class="text-danger">
                                                 {{ $errors->first('email')}}
@@ -45,7 +45,7 @@
                                         </div>                                                       
                                         <div class="form-group">
                                             <label for="no-hp">No HP</label>
-                                            <input type="text" class="form-control" id="no-hp" name="no_hp" value="{{ $data->no_hp }}">
+                                            <input type="text" class="form-control" id="no-hp" name="no_hp">
                                             @if($errors->has('no_hp'))
                                             <div class="text-danger">
                                                 {{ $errors->first('no_hp')}}

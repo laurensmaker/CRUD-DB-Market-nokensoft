@@ -85,7 +85,7 @@ class OrganisasiController extends Controller
     public function edit($id)
     {
         $data = M_Organisasi::find($id);
-        return view('editPengguna', ["title" => "Edit Organisasi"], ['organisasi' => $data]);
+        return view('editOrganisasi', ["title" => "Edit Organisasi"], ['organisasi' => $data]);
     }
 
     /**

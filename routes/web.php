@@ -7,6 +7,7 @@ use App\Http\Controllers\KelurahanController;
 use App\Http\Controllers\OrganisasiController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\ProvinsiController;
+use App\Http\Controllers\ProvinsiPapua;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,7 +31,7 @@ Route::get('/organisasi', [OrganisasiController::class, 'index']);
 Route::get('/organisasi/create', [OrganisasiController::class, 'create']);
 Route::post('/organisasi/store', [OrganisasiController::class, 'store']);
 Route::get('organisasi/edit/{id}', [OrganisasiController::class, 'edit']);
-Route::post('update/{id}', [OrganisasiController::class, 'update']);
+Route::post('organisasi/update/{id}', [OrganisasiController::class, 'update']);
 Route::get('destroy/{id}', [OrganisasiController::class, 'destroy']);
 Route::get('detail-organisasi/{id}', [OrganisasiController::class, 'show']);
 
@@ -78,5 +79,5 @@ Route::post('kelurahan/update/{id}',[KelurahanController::class, 'update']);
 Route::get('kelurahan/detail/{id}',[KelurahanController::class, 'detail']);
 Route::get('kelurahan/hapus/{id}',[KelurahanController::class, 'hapus']);
 
-
+Route::get('provPapua', [ProvinsiPapua::class, 'index']);
 

@@ -16,29 +16,35 @@
     <!-- Content Row -->
     <div class="row">
 
-        @forelse ($provinsi as $item)
+    
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card bg-warning shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <a href="Provinsi-Papua-Barat.html">
+                            <a href="{{ url('provPapua') }}">
                                 <div class="font-weight-bold text-white text-uppercase mb-1">
-                                   {{ $item->nama }}</div>
+                                   Provinsi Papua</div>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-            
-        @empty
-        <div class="alet alert-info p-3">
-         Data Provinsi belum tersedia
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card bg-info shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <a href="{{ url('provPapuaBarat') }}">
+                                <div class="font-weight-bold text-white text-uppercase mb-1">
+                                   Provinsi Papua Barat</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-            
-        @endforelse
-
       
 
     </div>

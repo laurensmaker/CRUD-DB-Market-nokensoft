@@ -55,7 +55,7 @@ class PenggunaController extends Controller
     public function edit($id)
     {
         $data = PenggunaModel::find($id);
-        return view('editPengguna', ['title' => 'Edit Pengguna', 'data' => $data]);
+        return view('editPengguna', ['title' => 'Edit Pengguna']);
     }
     public function update($id, Request $request)
     {
